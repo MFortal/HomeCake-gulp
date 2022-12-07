@@ -1,1 +1,44 @@
-p.class дополнение
+header.header
+  .header-container
+    section.header__info
+      .block
+        include logo.pug
+        .location
+          span.location__icon
+            include location.pug
+          span.location__sity Москва
+      .search
+        input.search__input(type='text' placeholder='Учебное заведение, специальность или профессия')
+      .block
+        .favorites
+          .favorites__like
+            include like.pug
+          .favorites__count 1
+        .profile
+          span.profile__name Екатерина
+          .profile__avatar
+    nav.header__nav
+      ul.nav
+        li
+          a(href="#!").nav__elem Вузы
+        li
+          a(href="#!").nav__elem Колледжи
+        li
+          a(href="#!").nav__elem Техникумы
+        li
+          a(href="#!").nav__elem Училища
+        li
+          a(href="#!").nav__elem Специальности
+        li
+          a(href="#!").nav__elem Профессии
+        li
+          a(href="#!").nav__elem Отзывы
+        li
+          a(href="#!").nav__elem Учебным заведениям
+        li
+          a(href="#!").nav__elem Тест на профориентацию
+        li
+          a(href="#!").nav__elem Профессии
+        li
+          a(href="#!").nav__elem Отзывы
+      button.arrow

@@ -14,8 +14,8 @@ export const html = () => {
         })
       )
     )
-    .pipe(app.plugins.replace(/@img\//g, "images/"))
     .pipe(GulpPug({ pretty: true }))
+    .pipe(app.plugins.replace(/@img\//g, "images/"))
     .pipe(webpHtmlNosvg())
     .pipe(app.gulp.dest(app.path.build.html))
     .pipe(
