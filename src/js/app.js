@@ -2,6 +2,9 @@ import * as functions from "./modules/functions.js";
 
 functions.isWebp();
 
+// Переменная для запросов к серверу
+let countResponse = false;
+
 let elems = document.querySelector(".location-elems");
 let locationBody = document.querySelector(".location-body");
 let preloader = document.querySelector(".preloader");
@@ -53,6 +56,9 @@ async function getResponse() {
           </div>`;
     }
   }
+
+  // Запрос к серверу был выполнен
+  countResponse = true;
 }
 
 // Отображение локального окна для поиска города
@@ -60,7 +66,8 @@ location.addEventListener("click", () => {
   locationModal.classList.toggle("hide");
   if (!locationModal.classList.contains("hide")) {
     locationInput.focus();
-    getResponse();
+    // Если запроса к серверу еще не было - запросить
+    if (!countResponse) getResponse();
   }
 });
 
@@ -75,4 +82,14 @@ locationClose.addEventListener("click", () => {
 locationInput.addEventListener("keydown", () => {
   locationClose.classList.remove("hide");
   if (locationInput.value == "") locationClose.classList.add("hide");
+});
+
+// Скролл меню
+
+let scrollArrow = document.querySelector(".scroll__arrow");
+let scrollTrack = document.querySelector(".scroll__track");
+
+scrollArrow.addEventListener("click", () => {
+  console.log("click");
+  scrollTrack.style.left = "-10%";
 });
