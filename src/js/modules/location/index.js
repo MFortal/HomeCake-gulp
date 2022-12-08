@@ -1,3 +1,5 @@
+//import { getResponse } from "./getResponse.js";
+
 // Переменная для запросов к серверу
 let countResponse = false;
 
@@ -17,6 +19,8 @@ let cities = [];
 let countSearchCities = 10;
 const searchStep = 10;
 let searchCities = [];
+
+let selectedElemIds = [];
 
 export function functionLocation() {
   listeners();
@@ -57,7 +61,7 @@ async function getResponse() {
   countResponse = true;
 }
 
-// Подгружка городов при скролле
+// Подгрузка городов при скролле
 const infinteObserver = new IntersectionObserver(
   ([city], observer) => {
     // Проверка на достижение последнего элемента
@@ -95,14 +99,40 @@ const infinteObserverSearch = new IntersectionObserver(
 
 const loadNewElems = (start = 0) => {
   // Добавление еще 10 городов
+  //function getElems(callback) {
   for (let i = start; i < countCities; i++) {
     getInnerHTMLElems(cities[i]);
+    //addListenerElem();
   }
 
+  const elems = document.querySelectorAll(".location-elem");
+  elems.forEach((elem) => {
+    elem.addEventListener("click", () => {
+      if (!selectedElemIds.includes(elem.dataset.id))
+        selectedElemIds.push(elem.dataset.id);
+      console.log(selectedElemIds);
+    });
+  });
+
   // Добавление обзервера для последнего элемента
-  const lastElem = document.querySelector(".location-elem:last-child");
+  const lastElem = elems[elems.length - 1];
   if (lastElem) {
     infinteObserver.observe(lastElem);
+  }
+};
+
+const getInnerHTMLElems = (elem) => {
+  if ("state" in elem) {
+    elems.innerHTML += `
+          <div class="location-elem" data-id=${elem.id}>
+            <span class="location-elem__city">${elem.name}</span>
+            <span class="location-elem__city-state">${elem.state}</span>
+          </div>`;
+  } else {
+    elems.innerHTML += `
+          <div class="location-elem" data-id=${elem.id}>
+            <span class="location-elem__city">${elem.name}</span>
+          </div>`;
   }
 };
 
@@ -111,8 +141,17 @@ const loadNewSeacrhElems = (start = 0) => {
     getInnerHTMLElems(searchCities[i]);
   }
 
+  const elems = document.querySelectorAll(".location-elem");
+  elems.forEach((elem) => {
+    elem.addEventListener("click", () => {
+      if (!selectedElemIds.includes(elem.dataset.id))
+        selectedElemIds.push(elem.dataset.id);
+      console.log(selectedElemIds);
+    });
+  });
+
   // Добавление обзервера для последнего элемента
-  const lastElem = document.querySelector(".location-elem:last-child");
+  const lastElem = elems[elems.length - 1];
   if (lastElem) {
     infinteObserverSearch.observe(lastElem);
   }
@@ -154,21 +193,6 @@ const listeners = () => {
   });
 };
 
-const getInnerHTMLElems = (elem) => {
-  if ("state" in elem) {
-    elems.innerHTML += `
-          <div class="location-elem">
-            <span class="location-elem__city">${elem.name}</span>
-            <span class="location-elem__city-state">${elem.state}</span>
-          </div>`;
-  } else {
-    elems.innerHTML += `
-          <div class="location-elem">
-            <span class="location-elem__city">${elem.name}</span>
-          </div>`;
-  }
-};
-
 const liveSearch = (input) => {
   elems.innerHTML = "";
   searchCities = [];
@@ -180,7 +204,7 @@ const liveSearch = (input) => {
       searchCities.push({
         id: city.id,
         name: formatSubStr(city.name, subsrtIndex, value.length),
-        state: city.state ? city.state : null,
+        state: city.state ? city.state : "",
       });
     }
   });
