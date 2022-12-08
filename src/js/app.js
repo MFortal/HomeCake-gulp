@@ -14,6 +14,11 @@ let location = document.querySelector(".location");
 let locationClose = document.querySelector(".location-search__close");
 let locationInput = document.querySelector(".location-search__input");
 
+let countCities = 10;
+const step = 10;
+let cities = [];
+let lengthCities = 0;
+
 async function getResponse() {
   // Скрытие данных и отображение прелодера
   locationBody.classList.add("hide");
@@ -25,16 +30,17 @@ async function getResponse() {
   let content = await response.json();
 
   // Все города с округами
-  let cities = [];
+  let id = 0;
   for (let state in content) {
     if ("cities" in content[state]) {
       for (let city in content[state].cities) {
         cities.push({
+          id: id++,
           name: content[state].cities[city].name,
           state: content[state].name,
         });
       }
-    } else cities.push({ state: content[state].name });
+    } else cities.push({ id: id++, state: content[state].name });
   }
 
   // Отображение данных, скрытие прелодера, фокусировка на инпуте
@@ -42,20 +48,7 @@ async function getResponse() {
   preloader.classList.add("hide");
   locationInput.focus();
 
-  for (let key in cities.splice(0, 80)) {
-    if ("name" in cities[key]) {
-      elems.innerHTML += `
-          <div class="location-elem">
-            <span class="location-elem__city">${cities[key].name}</span>
-            <span class="location-elem__city-state">${cities[key].state}</span>
-          </div>`;
-    } else {
-      elems.innerHTML += `
-          <div class="location-elem">
-            <span class="location-elem__city">${cities[key].state}</span>
-          </div>`;
-    }
-  }
+  loadNewElems();
 
   // Запрос к серверу был выполнен
   countResponse = true;
@@ -84,12 +77,46 @@ locationInput.addEventListener("keydown", () => {
   if (locationInput.value == "") locationClose.classList.add("hide");
 });
 
-// Скролл меню
+// Подгружка городов при скролле
 
-let scrollArrow = document.querySelector(".scroll__arrow");
-let scrollTrack = document.querySelector(".scroll__track");
+const infinteObserver = new IntersectionObserver(
+  ([city], observer) => {
+    // Проверка на достижение последнего элемента
+    if (city.isIntersecting) {
+      // Остановка отслеживания
+      observer.unobserve(city.target);
+      // Отображение новых данных
+      // Нужно подредачить условие, если дойти до конца массива, то будет работать некорректно
+      countCities < cities.length
+        ? (countCities += step)
+        : (countCities = cities.length);
+      loadNewElems(countCities - step);
+    }
+  },
+  { threshold: 0.2 }
+);
 
-scrollArrow.addEventListener("click", () => {
-  console.log("click");
-  scrollTrack.style.left = "-10%";
-});
+const loadNewElems = (start = 0) => {
+  // Добавление еще 10 городов
+  for (let key in cities.splice(start, countCities)) {
+    if ("name" in cities[key]) {
+      elems.innerHTML += `
+          <div class="location-elem">
+            <span class="location-elem__city">${cities[key].name}</span>
+            <span class="location-elem__city-state">${cities[key].state}</span>
+          </div>`;
+    } else {
+      elems.innerHTML += `
+          <div class="location-elem">
+            <span class="location-elem__city">${cities[key].state}</span>
+          </div>`;
+    }
+  }
+
+  // Добавление обзервера для последнего элемента
+  const lastElem = document.querySelector(".location-elem:last-child");
+  console.log(lastElem);
+  if (lastElem) {
+    infinteObserver.observe(lastElem);
+  }
+};
