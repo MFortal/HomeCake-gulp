@@ -18,6 +18,10 @@ button {
   cursor: pointer;
 }
 
+input {
+  border: none;
+}
+
 a:active,
 a:hover,
 a {
@@ -98,9 +102,11 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
 
-  &__sity {
+  &__city {
     line-height: 22px;
+    white-space: nowrap;
   }
 
   &__icon {
@@ -156,7 +162,6 @@ body {
 
 .search__input {
   padding: 13px 8px 13px 48px;
-  border: none;
   background: $color_grey;
   border-radius: 100px;
   width: 100%;
@@ -223,6 +228,164 @@ body {
 }
 
 .block {
-  max-width: 200px;
+  max-width: 250px;
   display: flex;
+  align-items: center;
+}
+
+// Вывод городов
+
+.location-container {
+  position: relative;
+}
+
+.location-elem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 11px 24px;
+  text-align: left;
+
+  line-height: 22px;
+
+  &:hover {
+    background: $color_grey;
+  }
+
+  &__city-state {
+    font-size: 12px;
+    line-height: 20px;
+
+    color: $color_grey3;
+  }
+}
+
+.location__modal {
+  position: absolute;
+  background: $color_locationModal;
+  box-shadow: 0px 7px 38px rgb(44 62 106 / 25%);
+  border-radius: 10px;
+  padding-top: 24px;
+  top: 48px;
+
+  width: 384px;
+  overflow: hidden;
+}
+
+.location-button {
+  font-family: Formular;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  background: $color_blue;
+  color: $color_background;
+
+  padding: 16px 0;
+  width: 100%;
+}
+
+.location-elems {
+  max-height: 200px;
+  overflow: auto;
+
+  scrollbar-width: $scrollbarWidth;
+  scrollbar-color: $scrollbarThumb $scrollbarBg;
+
+  &::-webkit-scrollbar {
+    width: $scrollbarWidth;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $scrollbarBg;
+    border-radius: $scrollbarBorderRadius;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbarThumb;
+    border-radius: $scrollbarBorderRadius;
+    border: $scrollbarBorder;
+  }
+}
+
+.location-search {
+  margin-bottom: 8px;
+
+  position: relative;
+
+  &__close {
+    content: "";
+    background-image: url("@img/close.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__input {
+    border-radius: 100px;
+    padding: 14px 40px 12px 25px;
+    outline: 1px solid $color_grey2;
+    width: 352px;
+
+    &:focus {
+      outline: 2px solid $color_grey-blue;
+    }
+  }
+}
+
+// Прелоадер
+.preloader {
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 30px auto;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #337ab7;
+  animation: preloader-spin 2s linear infinite;
+}
+.preloader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #bfe2ff;
+  animation: preloader-spin 3s linear infinite;
+}
+.preloader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #337ab7;
+  animation: preloader-spin 1.5s linear infinite;
+}
+@keyframes preloader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hide {
+  display: none;
 }

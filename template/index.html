@@ -22,10 +22,23 @@
               <path d="M85.5557 21.1765L84.6168 18.0625H80.2137L79.2749 21.1765H76.8953L80.5699 9.65647H84.3092L88 21.1765H85.5557ZM82.0429 11.9637L80.8289 15.965H83.9693L82.7552 11.9637H82.0429Z"></path>
               <path d="M38.1583 0H35.629L32.5938 6.05042H35.1231L38.1583 0Z"></path>
             </svg>
-            <div class="location"><span class="location__icon">
-                <svg class="location__icon_svg" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0.554043 10.5638L14.9471 0.594936C15.4542 0.243753 16.0659 0.718264 15.8519 1.29672L9.77637 17.717C9.57036 18.2738 8.81349 18.323 8.61362 17.7927L6.68389 12.6718C6.60699 12.4677 6.42672 12.3279 6.20994 12.3042L0.770016 11.7088C0.206593 11.6471 0.0660077 10.9018 0.554043 10.5638Z"></path>
-                </svg></span><span class="location__sity">Москва</span></div>
+            <div class="location-container">
+              <div class="location"><span class="location__icon">
+                  <svg class="location__icon_svg" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.554043 10.5638L14.9471 0.594936C15.4542 0.243753 16.0659 0.718264 15.8519 1.29672L9.77637 17.717C9.57036 18.2738 8.81349 18.323 8.61362 17.7927L6.68389 12.6718C6.60699 12.4677 6.42672 12.3279 6.20994 12.3042L0.770016 11.7088C0.206593 11.6471 0.0660077 10.9018 0.554043 10.5638Z"></path>
+                  </svg></span><span class="location__city">Любой регион</span></div>
+              <div class="location__modal hide">
+                <div class="location-body hide">
+                  <div class="location-search"> 
+                    <input class="location-search__input" type="text" placeholder="Регион, город, населенный пункт"/>
+                    <div class="location-search__close hide"></div>
+                  </div>
+                  <div class="location-elems"></div>
+                  <button class="location-button">Сохранить</button>
+                </div>
+                <div class="preloader"></div>
+              </div>
+            </div>
           </div>
           <div class="search">
             <input class="search__input" type="text" placeholder="Учебное заведение, специальность или профессия"/>

@@ -390,6 +390,14 @@ template {
   font-style: normal;
 }
 
+@font-face {
+  font-family: Formular;
+  font-display: swap;
+  src: url("../fonts/Formular-Medium.woff2") format("woff2"), url("../fonts/Formular-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -405,6 +413,10 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+input {
+  border: none;
 }
 
 a:active,
@@ -508,10 +520,12 @@ body {
       -ms-flex-align: center;
           align-items: center;
   gap: 8px;
+  cursor: pointer;
 }
 
-.location__sity {
+.location__city {
   line-height: 22px;
+  white-space: nowrap;
 }
 
 .location__icon {
@@ -570,7 +584,6 @@ body {
 
 .search__input {
   padding: 13px 8px 13px 48px;
-  border: none;
   background: #f1f1f1;
   border-radius: 100px;
   width: 100%;
@@ -675,10 +688,194 @@ body {
 }
 
 .block {
-  max-width: 200px;
+  max-width: 250px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.location-container {
+  position: relative;
+}
+
+.location-elem {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 11px 24px;
+  text-align: left;
+  line-height: 22px;
+}
+
+.location-elem:hover {
+  background: #f1f1f1;
+}
+
+.location-elem__city-state {
+  font-size: 12px;
+  line-height: 20px;
+  color: #767676;
+}
+
+.location__modal {
+  position: absolute;
+  background: #fbfbfb;
+  -webkit-box-shadow: 0px 7px 38px rgba(44, 62, 106, 0.25);
+          box-shadow: 0px 7px 38px rgba(44, 62, 106, 0.25);
+  border-radius: 10px;
+  padding-top: 24px;
+  top: 48px;
+  width: 384px;
+  overflow: hidden;
+}
+
+.location-button {
+  font-family: Formular;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: #0656b4;
+  color: #fff;
+  padding: 16px 0;
+  width: 100%;
+}
+
+.location-elems {
+  max-height: 200px;
+  overflow: auto;
+  scrollbar-width: 6px;
+  scrollbar-color: #a7a7a7 transparent;
+}
+
+.location-elems::-webkit-scrollbar {
+  width: 6px;
+}
+
+.location-elems::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.location-elems::-webkit-scrollbar-thumb {
+  background-color: #a7a7a7;
+  border-radius: 3px;
+  border: 2px solid transparent;
+}
+
+.location-search {
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.location-search__close {
+  content: "";
+  background-image: url("../images/close.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: absolute;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  right: 24px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.location-search__input {
+  border-radius: 100px;
+  padding: 14px 40px 12px 25px;
+  outline: 1px solid #a7a7a7;
+  width: 352px;
+}
+
+.location-search__input:focus {
+  outline: 2px solid #abc8ea;
+}
+
+.preloader {
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 30px auto;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #337ab7;
+  -webkit-animation: preloader-spin 2s linear infinite;
+          animation: preloader-spin 2s linear infinite;
+}
+
+.preloader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #bfe2ff;
+  -webkit-animation: preloader-spin 3s linear infinite;
+          animation: preloader-spin 3s linear infinite;
+}
+
+.preloader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #337ab7;
+  -webkit-animation: preloader-spin 1.5s linear infinite;
+          animation: preloader-spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes preloader-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.hide {
+  display: none;
 }
 
 .webp .profile__avatar { background-image: url(../images/avatar.webp); }

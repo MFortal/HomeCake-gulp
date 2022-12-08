@@ -2,3 +2,14 @@ $color_background: #fff;
 $color_text: #222;
 $color_grey: #f1f1f1;
 $color_grey2: #a7a7a7;
+$color_grey3: #767676;
+$color_locationModal: #fbfbfb;
+$color_blue: #0656b4;
+$color_grey-blue: #abc8ea;
+
+// скроллбар
+$scrollbarBg: transparent;
+$scrollbarThumb: $color_grey2;
+$scrollbarWidth: 6px;
+$scrollbarBorder: 2px solid $scrollbarBg;
+$scrollbarBorderRadius: calc($scrollbarWidth / 2);
