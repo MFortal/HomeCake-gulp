@@ -9,7 +9,13 @@ export const addNewElems = (flag, start, finish) => {
   } else currentData = data.search;
 
   if (!start) start = 0;
-  if (!finish) finish = currentData.count;
+  if (!finish) {
+    finish = currentData.count;
+  }
+
+  // Если в этот раз будет отображен последний элемент
+  // Тогда закончить observer
+  const lastElemFlag = finish == currentData.items.length ? true : false;
 
   for (let i = start; i < finish; i++) {
     getInnerHTMLElems(currentData.items[i], currentData.flag);
@@ -25,9 +31,11 @@ export const addNewElems = (flag, start, finish) => {
   });
 
   // Добавление обзервера для последнего элемента
-  const lastElem = elems[elems.length - 1];
-  if (lastElem) {
-    infinteObserver.observe(lastElem);
+  if (!lastElemFlag) {
+    const lastElem = elems[elems.length - 1];
+    if (lastElem) {
+      infinteObserver.observe(lastElem);
+    }
   }
 };
 
@@ -36,6 +44,8 @@ const infinteObserver = new IntersectionObserver(
   ([city], observer) => {
     let flag = city.target.dataset.flag;
     let count, step, length;
+
+    console.log("observer");
     // Проверка на достижение последнего элемента
     if (city.isIntersecting) {
       // Остановка отслеживания
@@ -50,6 +60,7 @@ const infinteObserver = new IntersectionObserver(
         step = data.search.step;
         length = data.search.items.length;
       }
+
       if (count + step < length) {
         flag == data.default.flag
           ? (data.default.count += step)
