@@ -56,7 +56,6 @@ async function getResponse() {
 }
 
 // Отображение локального окна для поиска города
-
 location.addEventListener("click", () => {
   locationModal.classList.toggle("hide");
   if (!locationModal.classList.contains("hide")) {
@@ -65,17 +64,15 @@ location.addEventListener("click", () => {
   }
 });
 
-// Добавление крестика при фокусировке на инпуте
-locationInput.addEventListener("focus", () =>
-  locationClose.classList.remove("hide")
-);
-
-locationInput.addEventListener("blur", () =>
-  locationClose.classList.add("hide")
-);
-
 // Очистка инпута городов
 locationClose.addEventListener("click", () => {
   locationInput.value = "";
+  locationClose.classList.add("hide");
   locationInput.focus();
+});
+
+// Добавление крестика при наборе на инпуте
+locationInput.addEventListener("keydown", () => {
+  locationClose.classList.remove("hide");
+  if (locationInput.value == "") locationClose.classList.add("hide");
 });
