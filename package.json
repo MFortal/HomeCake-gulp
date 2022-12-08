@@ -18,6 +18,7 @@
     "gulp-file-include": "^2.3.0",
     "gulp-fonter": "^0.3.0",
     "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-html-minifier": "^0.1.8",
     "gulp-imagemin": "^8.0.0",
     "gulp-newer": "^1.4.0",
     "gulp-notify": "^4.0.0",

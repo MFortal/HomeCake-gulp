@@ -1,7 +1,8 @@
-import fileinclude from "gulp-file-include";
 import GulpPug from "gulp-pug";
 import webpHtmlNosvg from "gulp-webp-html-nosvg";
 import versionNumber from "gulp-version-number";
+import htmlmin from "gulp-html-minifier";
+import rename from "gulp-rename";
 
 export const html = () => {
   return app.gulp
@@ -17,6 +18,7 @@ export const html = () => {
     .pipe(GulpPug({ pretty: true }))
     .pipe(app.plugins.replace(/@img\//g, "images/"))
     .pipe(webpHtmlNosvg())
+    .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(app.gulp.dest(app.path.build.html))
     .pipe(
       versionNumber({
