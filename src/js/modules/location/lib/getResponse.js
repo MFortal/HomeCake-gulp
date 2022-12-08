@@ -1,3 +1,9 @@
+import { addNewElems } from "./addNewElems.js";
+import { locationInput, response, data } from "../variables.js";
+
+const locationBody = document.querySelector(".location-body");
+const preloader = document.querySelector(".preloader");
+
 export async function getResponse() {
   // Скрытие данных и отображение прелодера
   locationBody.classList.add("hide");
@@ -5,21 +11,21 @@ export async function getResponse() {
 
   // Запрос к серверу
   const url = "https://studika.ru/api/areas";
-  let response = await fetch(url, { method: "POST" });
-  let content = await response.json();
+  let result = await fetch(url, { method: "POST" });
+  let content = await result.json();
 
   // Все города с округами
   let id = 0;
   for (let state in content) {
     if ("cities" in content[state]) {
       for (let city in content[state].cities) {
-        cities.push({
+        data.default.items.push({
           id: id++,
           name: content[state].cities[city].name,
           state: content[state].name,
         });
       }
-    } else cities.push({ id: id++, name: content[state].name });
+    } else data.default.items.push({ id: id++, name: content[state].name });
   }
 
   // Отображение данных, скрытие прелодера, фокусировка на инпуте
@@ -27,8 +33,8 @@ export async function getResponse() {
   preloader.classList.add("hide");
   locationInput.focus();
 
-  loadNewElems();
+  addNewElems(data.default.flag);
 
   // Запрос к серверу был выполнен
-  countResponse = true;
+  response.value = true;
 }
