@@ -19,3 +19,54 @@ export function isWebp() {
     }
   });
 }
+
+export const setCookie = (name, value, options = {}) => {
+  options = {
+    path: "/",
+    // при необходимости добавьте другие значения по умолчанию
+    ...options,
+  };
+
+  if (options.expires instanceof Date) {
+    options.expires = options.expires.toUTCString();
+  }
+
+  let updatedCookie =
+    encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+  for (let optionKey in options) {
+    updatedCookie += "; " + optionKey;
+    let optionValue = options[optionKey];
+    if (optionValue !== true) {
+      updatedCookie += "=" + optionValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+};
+
+// возвращает куки с указанным name,
+// или undefined, если ничего не найдено
+export const getCookie = (name) => {
+  let matches = document.cookie.match(
+    new RegExp(
+      "(?:^|; )" +
+        name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
+        "=([^;]*)"
+    )
+  );
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+};
+
+// Отправка данных на сервер
+export async function getData(data) {
+  let response = await fetch("https://httpbin.org/post", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(data),
+  });
+
+  let result = await response.json();
+}

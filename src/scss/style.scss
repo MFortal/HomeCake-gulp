@@ -101,6 +101,10 @@ body {
   &__city {
     line-height: 22px;
     white-space: nowrap;
+
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__icon {
@@ -350,6 +354,7 @@ body {
   width: 100px;
   height: 100px;
   margin: 30px auto;
+  margin-top: 6px;
   border-radius: 50%;
   border: 3px solid transparent;
   border-top-color: #337ab7;

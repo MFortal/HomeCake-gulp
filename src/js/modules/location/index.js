@@ -2,6 +2,8 @@ import {
   location,
   locationModal,
   locationInput,
+  locationBody,
+  preloader,
   response,
   locationClose,
   elems,
@@ -12,7 +14,10 @@ import {
 } from "./common.js";
 import { liveSearch } from "./lib/liveSearch.js";
 import { setDefaultInnerHTML } from "./lib/setDefaultInnerHTML.js";
-import { getResponse } from "./lib/getResponse.js";
+import { getCities } from "./lib/getCities.js";
+import { setCookie, getCookie, getData } from "../functions.js";
+
+const locationCity = document.querySelector(".location__city");
 
 export function functionLocation() {
   listeners();
@@ -25,7 +30,7 @@ const listeners = () => {
     if (!locationModal.classList.contains("hide")) {
       locationInput.focus();
       // Если запроса к серверу еще не было - запросить
-      if (!response.value) getResponse();
+      if (!response.value) getCities();
     }
   });
 
@@ -74,5 +79,34 @@ const listeners = () => {
         }
       }
     }
+  });
+
+  // Отправка выбранных городов в куки
+  locationButton.addEventListener("click", () => {
+    let cities = [];
+    let currentCities = [];
+
+    for (let city of selectedCities.values()) {
+      cities.push({ id: city.id, name: city.name });
+      currentCities.push(city.name);
+    }
+    currentCities = currentCities.join(", ");
+    locationCity.innerHTML = currentCities;
+
+    setCookie("cities", JSON.stringify(cities));
+    console.log(getCookie("cities"));
+
+    // Показ прелодера и скрытие всех городов
+    locationBody.classList.add("hide");
+    preloader.classList.remove("hide");
+
+    // Отправка данных на сервер
+    getData(cities)
+      .then(() => {
+        locationModal.classList.add("hide");
+        locationBody.classList.remove("hide");
+        preloader.classList.add("hide");
+      })
+      .catch((reject) => console.log(reject));
   });
 };

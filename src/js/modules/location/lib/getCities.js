@@ -1,10 +1,13 @@
 import { addNewElems } from "./addNewElems.js";
-import { locationInput, response, data } from "../common.js";
+import {
+  locationInput,
+  response,
+  data,
+  locationBody,
+  preloader,
+} from "../common.js";
 
-const locationBody = document.querySelector(".location-body");
-const preloader = document.querySelector(".preloader");
-
-export async function getResponse() {
+export async function getCities() {
   // Скрытие данных и отображение прелодера
   locationBody.classList.add("hide");
   preloader.classList.remove("hide");
