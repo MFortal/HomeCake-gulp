@@ -1,4 +1,4 @@
-import { elems } from "../variables.js";
+import { elems } from "../common.js";
 
 export const getInnerHTMLElems = (elem, flag) => {
   if (elem) {

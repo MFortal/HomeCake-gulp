@@ -1,4 +1,4 @@
-import { elems, data } from "../variables.js";
+import { elems, data } from "../common.js";
 import { addNewElems } from "./addNewElems.js";
 
 export const liveSearch = (input) => {

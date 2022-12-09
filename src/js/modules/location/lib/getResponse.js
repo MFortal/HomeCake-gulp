@@ -1,5 +1,5 @@
 import { addNewElems } from "./addNewElems.js";
-import { locationInput, response, data } from "../variables.js";
+import { locationInput, response, data } from "../common.js";
 
 const locationBody = document.querySelector(".location-body");
 const preloader = document.querySelector(".preloader");

@@ -1,5 +1,10 @@
 import { getInnerHTMLElems } from "./getInnerHTMLElems.js";
-import { selectedElemIds, pushElem, data } from "../variables.js";
+import {
+  data,
+  selectedCities,
+  selectedContainer,
+  getHTMLSelectedItem,
+} from "../common.js";
 
 export const addNewElems = (flag, start, finish) => {
   // Добавление еще 10 городов
@@ -24,9 +29,20 @@ export const addNewElems = (flag, start, finish) => {
   const elems = document.querySelectorAll(".location-elem");
   elems.forEach((elem) => {
     elem.addEventListener("click", () => {
-      if (!selectedElemIds.includes(elem.dataset.id))
-        pushElem(selectedElemIds, elem.dataset.id);
-      console.log(selectedElemIds);
+      const currentId = elem.dataset.id;
+      const currentElem = data.default.items.find(
+        (item) => item.id == currentId
+      );
+
+      if (!selectedCities.has(currentId)) {
+        selectedCities.set(currentId, currentElem);
+
+        selectedContainer.classList.add("show");
+        selectedContainer.innerHTML += getHTMLSelectedItem(
+          currentId,
+          currentElem.name
+        );
+      }
     });
   });
 

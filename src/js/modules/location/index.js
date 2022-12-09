@@ -5,7 +5,10 @@ import {
   response,
   locationClose,
   elems,
-} from "./variables.js";
+  selectedContainer,
+  selectedCities,
+  getHTMLSelectedItem,
+} from "./common.js";
 import { liveSearch } from "./lib/liveSearch.js";
 import { setDefaultInnerHTML } from "./lib/setDefaultInnerHTML.js";
 import { getResponse } from "./lib/getResponse.js";
@@ -46,6 +49,25 @@ const listeners = () => {
 
       // Поиск
       liveSearch(locationInput);
+    }
+  });
+
+  // Удаление городов из выбранных
+  selectedContainer.addEventListener("click", function (e) {
+    const currentId = e.target.dataset.id;
+    // Если это город
+    if (currentId) {
+      selectedCities.delete(currentId);
+
+      selectedContainer.innerHTML = "";
+
+      if (selectedCities.size == 0) {
+        selectedContainer.classList.remove("show");
+      } else {
+        for (let city of selectedCities.values()) {
+          selectedContainer.innerHTML += getHTMLSelectedItem(city.id, city.name);
+        }
+      }
     }
   });
 };

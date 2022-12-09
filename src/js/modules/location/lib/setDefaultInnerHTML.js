@@ -1,4 +1,4 @@
-import { data } from "../variables.js";
+import { data } from "../common.js";
 import { addNewElems } from "./addNewElems.js";
 
 // Зачистка всех элементов и отображение первых 10
