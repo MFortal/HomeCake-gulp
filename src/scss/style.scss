@@ -1,6 +1,7 @@
 @import "normalize.scss";
 @import "fonts";
 @import "variables";
+@import "../../node_modules/swiper/swiper-bundle.min.css";
 
 * {
   margin: 0;
@@ -65,17 +66,10 @@ body {
   }
 }
 
-.arrow {
-  width: 32px;
-  height: 32px;
-  background: url("@img/arrow.svg") no-repeat center;
-}
-
 .nav {
   display: flex;
   gap: 30px;
   align-items: center;
-  overflow: hidden;
 
   &__elem {
     padding: 2.5px 10px;
@@ -249,6 +243,7 @@ body {
   text-align: left;
 
   line-height: 22px;
+  cursor: pointer;
 
   &:hover {
     background: $color_grey;
@@ -272,6 +267,7 @@ body {
 
   width: 384px;
   overflow: hidden;
+  z-index: 5;
 }
 
 .location-button {
@@ -388,4 +384,24 @@ body {
 
 .hide {
   display: none;
+}
+
+// Swiper
+.swiper {
+  max-width: 100%;
+
+  &-slide {
+    width: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  &-button-disabled {
+    opacity: 0.5;
+  }
+  &-prev {
+    width: 32px;
+    height: 32px;
+    background: url("@img/arrow.svg") no-repeat center;
+  }
 }

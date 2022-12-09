@@ -45,7 +45,6 @@ const infinteObserver = new IntersectionObserver(
     let flag = city.target.dataset.flag;
     let count, step, length;
 
-    console.log("observer");
     // Проверка на достижение последнего элемента
     if (city.isIntersecting) {
       // Остановка отслеживания
