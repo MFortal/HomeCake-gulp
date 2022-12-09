@@ -8,6 +8,7 @@ import {
   selectedContainer,
   selectedCities,
   getHTMLSelectedItem,
+  locationButton,
 } from "./common.js";
 import { liveSearch } from "./lib/liveSearch.js";
 import { setDefaultInnerHTML } from "./lib/setDefaultInnerHTML.js";
@@ -63,9 +64,13 @@ const listeners = () => {
 
       if (selectedCities.size == 0) {
         selectedContainer.classList.remove("show");
+        locationButton.classList.remove("show");
       } else {
         for (let city of selectedCities.values()) {
-          selectedContainer.innerHTML += getHTMLSelectedItem(city.id, city.name);
+          selectedContainer.innerHTML += getHTMLSelectedItem(
+            city.id,
+            city.name
+          );
         }
       }
     }

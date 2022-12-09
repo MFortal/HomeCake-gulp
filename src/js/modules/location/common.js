@@ -1,12 +1,13 @@
 // Переменная для запросов к серверу
 export let response = { value: false };
 
-export const elems = document.querySelector(".location-elems");
-export const locationModal = document.querySelector(".location__modal");
 export const location = document.querySelector(".location");
-export const locationClose = document.querySelector(".location-search__close");
-export const locationInput = document.querySelector(".location-search__input");
+export const elems = document.querySelector(".location-elems");
 export const selectedContainer = document.querySelector(".location-selected");
+export const locationButton = document.querySelector(".location-button");
+export const locationModal = document.querySelector(".location__modal");
+export const locationInput = document.querySelector(".location-search__input");
+export const locationClose = document.querySelector(".location-search__close");
 
 export let data = {
   default: {

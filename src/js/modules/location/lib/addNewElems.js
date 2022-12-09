@@ -4,6 +4,7 @@ import {
   selectedCities,
   selectedContainer,
   getHTMLSelectedItem,
+  locationButton,
 } from "../common.js";
 
 export const addNewElems = (flag, start, finish) => {
@@ -38,6 +39,8 @@ export const addNewElems = (flag, start, finish) => {
         selectedCities.set(currentId, currentElem);
 
         selectedContainer.classList.add("show");
+        locationButton.classList.add("show");
+
         selectedContainer.innerHTML += getHTMLSelectedItem(
           currentId,
           currentElem.name

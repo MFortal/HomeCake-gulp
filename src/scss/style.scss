@@ -282,10 +282,16 @@ body {
 
   padding: 16px 0;
   width: 100%;
+
+  display: none;
+
+  &.show {
+    display: block;
+  }
 }
 
 .location-elems {
-  max-height: 200px;
+  max-height: 250px;
   overflow: auto;
 
   scrollbar-width: $scrollbarWidth;
