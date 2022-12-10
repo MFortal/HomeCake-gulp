@@ -8,6 +8,8 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
+@import "../../node_modules/swiper/swiper-bundle.min.css";
+
 html {
   line-height: 1.15;
   /* 1 */
@@ -440,7 +442,7 @@ body {
   padding-bottom: 16px;
 }
 
-.header-container {
+.header-container-desctop {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -453,7 +455,7 @@ body {
           flex-direction: column;
   gap: 24px;
   max-width: 1280px;
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -475,12 +477,6 @@ body {
   display: flex;
 }
 
-.arrow {
-  width: 32px;
-  height: 32px;
-  background: url("../images/arrow.svg") no-repeat center;
-}
-
 .nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -489,7 +485,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  overflow: hidden;
 }
 
 .nav__elem {
@@ -526,6 +521,10 @@ body {
 .location__city {
   line-height: 22px;
   white-space: nowrap;
+  max-width: 100px;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
 }
 
 .location__icon {
@@ -587,6 +586,8 @@ body {
   background: #f1f1f1;
   border-radius: 100px;
   width: 100%;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
 }
 
 .search__input:focus {
@@ -638,7 +639,7 @@ body {
   gap: 7px;
 }
 
-.no-webp .profile__avatar {
+.no-webp .profile__avatar{
   background-image: url("../images/avatar.jpg"); }
 
 .profile__avatar {
@@ -719,6 +720,7 @@ body {
   padding: 11px 24px;
   text-align: left;
   line-height: 22px;
+  cursor: pointer;
 }
 
 .location-elem:hover {
@@ -741,6 +743,7 @@ body {
   top: 48px;
   width: 384px;
   overflow: hidden;
+  z-index: 5;
 }
 
 .location-button {
@@ -753,10 +756,15 @@ body {
   color: #fff;
   padding: 16px 0;
   width: 100%;
+  display: none;
+}
+
+.location-button.show {
+  display: block;
 }
 
 .location-elems {
-  max-height: 200px;
+  max-height: 250px;
   overflow: auto;
   scrollbar-width: 6px;
   scrollbar-color: #a7a7a7 transparent;
@@ -778,7 +786,7 @@ body {
 }
 
 .location-search {
-  margin-bottom: 8px;
+  margin: 0 16px 8px;
   position: relative;
 }
 
@@ -791,7 +799,7 @@ body {
   cursor: pointer;
   width: 32px;
   height: 32px;
-  right: 24px;
+  right: 10px;
   top: 50%;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
@@ -815,6 +823,7 @@ body {
   width: 100px;
   height: 100px;
   margin: 30px auto;
+  margin-top: 6px;
   border-radius: 50%;
   border: 3px solid transparent;
   border-top-color: #337ab7;
@@ -878,4 +887,207 @@ body {
   display: none;
 }
 
-.webp .profile__avatar { background-image: url(../images/avatar.webp); }
+.swiper {
+  max-width: 100%;
+}
+
+.swiper-slide {
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.swiper-button-disabled {
+  opacity: 0.5;
+}
+
+.swiper-prev {
+  width: 32px;
+  height: 32px;
+  background: url("../images/arrow.svg") no-repeat center;
+}
+
+.location-selected {
+  display: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  row-gap: 8px;
+  -webkit-column-gap: 4px;
+     -moz-column-gap: 4px;
+          column-gap: 4px;
+  padding: 12px 16px;
+}
+
+.location-selected.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.location-selected__item {
+  background: #0656b4;
+  border-radius: 49px;
+  color: #fff;
+  padding: 9px 17px;
+  line-height: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  cursor: pointer;
+}
+
+.location-selected__item svg {
+  width: 14px;
+  height: 14px;
+}
+
+.location-selected__item svg path {
+  fill: #fff;
+}
+
+.header-container-mobile {
+  display: none;
+}
+
+.burger {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 8px 6px;
+  width: 32px;
+  height: 32px;
+}
+
+.burger span {
+  height: 2px;
+  width: 20px;
+  background-color: #222;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.burger.active span:nth-child(2n) {
+  display: none;
+}
+
+.burger.active span:first-child {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 7px;
+  position: relative;
+}
+
+.burger.active span:last-child {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: 0;
+  position: relative;
+}
+
+.header-mobile-nav.active {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  height: 100vh;
+}
+
+.header-mobile-nav {
+  display: none;
+}
+
+body.lock {
+  overflow: hidden;
+}
+
+@media (max-width: 1280px) {
+  .header-container-desctop {
+    gap: 14px;
+  }
+
+  .block {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 10px;
+  }
+
+  .block:last-child {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+
+  .favorites {
+    margin: 0;
+  }
+
+  .search__input {
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 780px) {
+  .header-container-desctop {
+    display: none;
+  }
+
+  .header {
+    padding: 0;
+  }
+
+  .logo-svg {
+    margin-right: 0;
+  }
+
+  .header-container-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .mobile-header {
+    margin: 8px 16px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.webp .profile__avatar{ background-image: url(../images/avatar.webp); }

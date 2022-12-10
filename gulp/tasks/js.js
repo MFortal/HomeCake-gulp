@@ -11,11 +11,12 @@ export const js = () => {
         })
       )
     )
+    .pipe(app.gulp.dest(app.path.build.js))
     .pipe(
       webpack({
         mode: "development",
         output: {
-          filename: "app.min.js",
+          filename: "script.js",
         },
       })
     )

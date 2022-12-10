@@ -1,30 +1,28 @@
 header.header
-  .header-container
+  .header-container-desctop
     section.header__info
       .block
-        include logo.pug
-        .location-container
-          .location
-            span.location__icon
-              include location.pug
-            span.location__city Любой регион
-          .location__modal.hide
-            .location-body.hide
-              .location-search 
-                input.location-search__input(type='text' placeholder='Регион, город, населенный пункт')
-                .location-search__close.hide
-              .location-selected
-              .location-elems
-              button.location-button Сохранить
-            .preloader
+        include components/logo.pug
+        include components/location.pug
       .search
-        input.search__input(type='text' placeholder='Учебное заведение, специальность или профессия')
+        include components/search.pug
       .block
-        .favorites
-          .favorites__like
-            include like.pug
-          .favorites__count 1
-        .profile
-          span.profile__name Екатерина
-          .profile__avatar
-    include swiper.pug
+        include components/like.pug
+        include components/profile.pug
+    include components/swiper.pug
+  
+  .header-container-mobile
+    .mobile-header
+      .burger
+        span
+        span
+        span
+      .logo
+        include components/logo.pug
+      include components/like.pug
+    .header-mobile-nav
+      include components/location.pug
+      include components/profile.pug
+      .search
+        include components/search.pug
+      include components/swiper.pug

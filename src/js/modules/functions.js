@@ -1,5 +1,5 @@
 // Проверка поддержки webp, добавление класса webp или no-webp
-export function isWebp() {
+export const isWebp = () => {
   // Проверка поддержки webp
   function testWebP(callback) {
     var webP = new Image();
@@ -18,7 +18,7 @@ export function isWebp() {
       document.querySelector("body").classList.add("no-webp");
     }
   });
-}
+};
 
 export const setCookie = (name, value, options = {}) => {
   options = {

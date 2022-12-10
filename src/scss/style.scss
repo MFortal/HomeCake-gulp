@@ -2,6 +2,7 @@
 @import "fonts";
 @import "variables";
 @import "../../node_modules/swiper/swiper-bundle.min.css";
+@import "media";
 
 * {
   margin: 0;
@@ -45,13 +46,13 @@ body {
   padding-top: 24px;
   padding-bottom: 16px;
 
-  &-container {
+  &-container-desctop {
     display: flex;
     justify-content: center;
     flex-direction: column;
     gap: 24px;
     max-width: 1280px;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
   }
 
@@ -163,6 +164,7 @@ body {
   background: $color_grey;
   border-radius: 100px;
   width: 100%;
+  text-overflow: ellipsis;
 
   &:focus {
     outline: 1px solid $color_grey2;
@@ -317,7 +319,7 @@ body {
 }
 
 .location-search {
-  margin-bottom: 8px;
+  margin: 0 16px 8px;
 
   position: relative;
 
@@ -330,7 +332,7 @@ body {
     cursor: pointer;
     width: 32px;
     height: 32px;
-    right: 24px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -450,4 +452,60 @@ body {
       fill: $color_background;
     }
   }
+}
+
+// Мобильное меню
+.header-container-mobile {
+  display: none;
+}
+
+.burger {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  padding: 8px 6px;
+
+  width: 32px;
+  height: 32px;
+}
+
+.burger span {
+  height: 2px;
+  width: 20px;
+  background-color: $color_text;
+
+  transition: all 0.3s ease;
+}
+
+.burger.active span:nth-child(2n) {
+  display: none;
+}
+
+.burger.active span:first-child {
+  transform: rotate(45deg);
+  top: 7px;
+  position: relative;
+}
+
+.burger.active span:last-child {
+  transform: rotate(-45deg);
+  top: 0;
+  position: relative;
+}
+
+.header-mobile-nav.active {
+  display: block;
+
+  width: 100%;
+  overflow: auto;
+
+  height: 100vh;
+}
+
+.header-mobile-nav {
+  display: none;
+}
+
+body.lock {
+  overflow: hidden;
 }

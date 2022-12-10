@@ -1,7 +1,9 @@
-import * as functions from "./modules/functions.js";
-import { functionLocation } from "./modules/location/index.js";
-import { initSwiper } from "./modules/swiper/index.js";
+import { isWebp } from "./modules/functions.js";
+import { functionLocation } from "./modules/location/location.js";
+import { initSwiper } from "./modules/swiper/swiper.js";
+import { setMenuEvent } from "./modules/menuMobile/menuMobile.js";
 
-functions.isWebp();
+isWebp();
 functionLocation();
 initSwiper();
+setMenuEvent();

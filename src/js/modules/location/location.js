@@ -94,7 +94,7 @@ const listeners = () => {
     locationCity.innerHTML = currentCities;
 
     setCookie("cities", JSON.stringify(cities));
-    console.log(getCookie("cities"));
+    console.log(`cookie: ${getCookie("cities")}`);
 
     // Показ прелодера и скрытие всех городов
     locationBody.classList.add("hide");
