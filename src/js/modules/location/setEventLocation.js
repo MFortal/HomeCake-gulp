@@ -19,7 +19,7 @@ import { setCookie, getCookie, getData } from "../functions.js";
 
 const locationCity = document.querySelector(".location__city");
 
-export function functionLocation() {
+export function setEventLocation() {
   listeners();
 }
 

@@ -46,23 +46,22 @@ body {
   padding-top: 24px;
   padding-bottom: 16px;
 
-  &-container-desctop {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 24px;
+  &-container {
     max-width: 1280px;
     width: 90%;
     margin: 0 auto;
   }
 
-  &__info {
-    display: flex;
-    justify-content: space-between;
+  &-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 60% 1fr 1fr;
+    grid-row-gap: 24px;
+    grid-column-gap: 10px;
     align-items: center;
   }
 
   &__nav {
+    grid-column: 1/6;
     display: flex;
   }
 }
@@ -140,7 +139,8 @@ body {
   position: relative;
 
   max-width: 592px;
-  width: 50%;
+  width: 80%;
+  margin: 0 auto;
 
   &::before {
     content: "";
@@ -455,12 +455,9 @@ body {
 }
 
 // Мобильное меню
-.header-container-mobile {
-  display: none;
-}
 
 .burger {
-  display: flex;
+  display: none;
   gap: 5px;
   flex-direction: column;
   padding: 8px 6px;
@@ -491,19 +488,6 @@ body {
   transform: rotate(-45deg);
   top: 0;
   position: relative;
-}
-
-.header-mobile-nav.active {
-  display: block;
-
-  width: 100%;
-  overflow: auto;
-
-  height: 100vh;
-}
-
-.header-mobile-nav {
-  display: none;
 }
 
 body.lock {

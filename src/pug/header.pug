@@ -1,28 +1,14 @@
 header.header
-  .header-container-desctop
-    section.header__info
-      .block
-        include components/logo.pug
-        include components/location.pug
-      .search
-        include components/search.pug
-      .block
-        include components/like.pug
-        include components/profile.pug
-    include components/swiper.pug
-  
-  .header-container-mobile
-    .mobile-header
+  .header-container
+    section.header-main
       .burger
         span
-        span
+        span 
         span
       .logo
         include components/logo.pug
-      include components/like.pug
-    .header-mobile-nav
       include components/location.pug
+      include components/search.pug
+      include components/like.pug
       include components/profile.pug
-      .search
-        include components/search.pug
       include components/swiper.pug

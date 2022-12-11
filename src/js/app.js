@@ -1,9 +1,9 @@
 import { isWebp } from "./modules/functions.js";
-import { functionLocation } from "./modules/location/location.js";
-import { initSwiper } from "./modules/swiper/swiper.js";
-import { setMenuEvent } from "./modules/menuMobile/menuMobile.js";
+import { setEventLocation } from "./modules/location/setEventLocation.js";
+import { addSwiper } from "./modules/addSwiper.js";
+import { setMenuEvent } from "./modules/setMenuEvent.js";
 
 isWebp();
-functionLocation();
-initSwiper();
+setEventLocation();
+addSwiper();
 setMenuEvent();
