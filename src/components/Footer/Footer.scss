@@ -1,0 +1,33 @@
+.footer {
+	box-sizing: border-box;
+	justify-content: center;
+	padding: 50px 170px;
+	gap: 35px;
+
+	&__tel {
+		font-family: "FoglihtenNo06";
+		font-size: 1.5rem;
+		line-height: 1.36;
+		letter-spacing: 0.05em;
+		color: $color_saturatedPink;
+	}
+
+	&__contact {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0px;
+		gap: 35px;
+	}
+
+	&__text {
+		font-family: "FoglihtenNo06";
+		font-size: 1rem;
+		line-height: 1.36;
+		letter-spacing: 0.05em;
+	}
+
+	&__nav {
+		font-size: 1.1rem;
+	}
+}

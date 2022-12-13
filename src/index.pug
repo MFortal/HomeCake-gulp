@@ -1,11 +1,32 @@
-<!DOCTYPE html>
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible" content="IE=edge")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title Студика
-    link(rel="stylesheet", href="./css/style.min.css")
-  body
-    include pug/header.pug
-    script(defer src='js/script.js')
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="icon", type="image/svg+xml", href="images/icon/icon.svg")
+        link(rel="icon", href="images/icon/favicon.ico", sizes="any")
+        link(rel="apple-touch-icon", href="images/icon/apple-touch-icon.png")
+        link(rel="stylesheet" href="css/main.min.css")
+        link(href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet")
+        title Кондитерская Анны Солдатенко
+    body
+        header.header#header
+          .burger
+            span
+          nav.menu.header__nav
+            ul.menu__ul.header__ul
+              include components/Menu/Menu.pug
+        main#main
+          include components/Main/Main.pug
+          include components/About/About.pug
+          include components/Advantage/Advantage.pug
+          include components/Assortment/Assortment.pug
+          include components/Taste/Taste.pug
+          include components/Offer/Offer.pug
+          include components/Review/Review.pug
+          include components/Contact/Contact.pug
+        footer  
+          include components/Footer/Footer.pug
+        .preloader-container
+          .preloader
+        script(defer src='js/main.js')

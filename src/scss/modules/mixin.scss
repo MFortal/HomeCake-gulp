@@ -1,0 +1,12 @@
+@mixin animationBefore($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+  transition: all 2.5s ease 0s;
+}
+
+@mixin animationAfter($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}

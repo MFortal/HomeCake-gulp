@@ -1,0 +1,8 @@
+.svg_social {
+  fill: $color_saturatedPink;
+  transform: scale(1.1);
+
+  &:hover {
+    fill: $color_pink;
+  }
+}

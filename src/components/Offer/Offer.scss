@@ -1,0 +1,113 @@
+.offer {
+  padding-left: 0;
+  padding-right: 0;
+  overflow: hidden;
+  &__main {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  &__foto {
+    width: 50%;
+    border-radius: 50% 0px;
+    overflow: hidden;
+  }
+
+  &__img {
+    height: 100%;
+  }
+
+  &__title {
+    font-family: "FoglihtenNo06";
+    font-size: 2.1rem;
+    line-height: 1.26;
+    letter-spacing: 0.05em;
+  }
+
+  &__desc {
+    font-size: 1.5rem;
+    line-height: 1.23;
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+
+  &__info {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: calc(50% - $indent);
+    padding: 55px 30px;
+    box-sizing: border-box;
+  }
+
+  &_margin-right {
+    margin-right: $indent;
+  }
+
+  &_margin-left {
+    margin-left: $indent;
+  }
+
+  &__buttonText {
+    font-family: "FoglihtenNo06";
+    font-size: 1.1rem;
+    line-height: 2.27;
+    letter-spacing: 0.05em;
+    color: $color_saturatedPink;
+    width: 100%;
+  }
+
+  &__button {
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+
+    &:hover .offer__figure_hover {
+      fill: $color_buttonBack;
+    }
+  }
+
+  &__figure {
+    fill: transparent;
+    stroke: $color_buttonText;
+
+    &_hover {
+      stroke: $color_saturatedPink;
+    }
+
+    &_position {
+      transform: translateY(-18%) rotate(2deg);
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 0px;
+    gap: 35px;
+  }
+
+  &__buttonText {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-52%) translateY(-73%);
+    top: 50%;
+  }
+
+  &__svg {
+    width: 90%;
+    height: 140px;
+  }
+}

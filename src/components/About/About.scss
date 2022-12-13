@@ -1,0 +1,72 @@
+.social_links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+.about {
+  overflow: hidden;
+
+  &__main {
+    position: relative;
+    width: 100%;
+    height: 815px;
+    overflow: hidden;
+  }
+
+  &__img {
+    display: block;
+    margin: 3% auto 0;
+  }
+
+  &__info_left,
+  &__info_right {
+    font-family: "FoglihtenNo06";
+    font-size: 2rem;
+    width: 18%;
+    line-height: 1.27;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px $color_saturatedPink;
+  }
+
+  &__text_left,
+  &__text_right {
+    width: 50%;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+  }
+
+  &__info_left,
+  &__text_left {
+    text-align: left;
+  }
+
+  &__info_right,
+  &__text_right {
+    text-align: right;
+  }
+
+  &__text_left {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__text_right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &__info_right {
+    position: absolute;
+    top: 18.5%;
+    right: 19.4%;
+  }
+
+  &__info_left {
+    position: absolute;
+    left: 14.2%;
+    bottom: 21.5%;
+  }
+}

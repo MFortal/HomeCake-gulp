@@ -1,0 +1,29 @@
+-
+    items = [
+        {'src':"../images/_assortment/cake.jpg" ,'classImg':'img_position36', 'class':'_anim-items _anim-no-hide', 'heading': 'торты', 'description': 'Неповторимые торты на Ваш праздник', 'weight': 'Вес от 1,5 кг','price': 'от 1550 р/кг'},
+        {'src':"../images/_assortment/mousse.jpg" , 'class':'_anim-items _anim-no-hide', 'heading': 'муссовые десерты','description': 'Почти торт, но в муссе', 'weight': 'Вес ~ 100-115 гр', 'order':'Заказ от 4 шт одного вкуса','price': '245 р/шт'},
+        {'src':"../images/_assortment/macaroni.jpg" , 'class':'_active _display', 'heading': 'макарон', 'description': 'Круглое французское печенье', 'weight':'Вес ~ 60 гр', 'order':'Заказ от 4 шт','price': 'от 100 р/шт'},
+        {'src':"../images/_assortment/cupcakes.jpg" , 'class':'_active _display', 'heading': 'капкейки', 'description': 'Порционный кекс', 'weight':'Вес ~ 60 гр', 'order':'Заказ от 4 шт','price': 'от 225 р/шт'},
+        {'src':"../images/_assortment/trifles.jpg" , 'class':'_active _display', 'heading': 'трайфлы', 'description': 'Порционный торт в стаканчике', 'weight':'Вес от 120 гр', 'order':'Заказ от 4 шт','price':'от 215 р/шт' },
+        {'src':"../images/_assortment/potato.jpg" , 'class':'_active _display', 'heading': 'эскимо-картошка', 'description': 'Домашнее пироженое картошка', 'weight':'Вес ~ 60 гр', 'order':'Заказ от 4 шт','price':'165 р/шт' },
+        {'src':"../images/_assortment/chocolate.jpg" , 'class':'_active _display', 'heading': 'шоколадные изделия', 'description': 'Бельгийский шоколад в виде фигурок животных, плиток, конфет и многое другое', 'price':'от 215 р/шт' },]
+
+section.container.assortment.block.section_not_padding#assortment
+  h1.heading.assortment__heading Ассортимент
+  .cards
+    each item in items
+      div(class='card '+item.class data-aos='zoom-in-up')
+        .card__content
+          .card__img
+            img(class='img '+ item.classImg src=item.src)
+          .card__info
+            .card__info_main 
+              .card__info_title.heading #{item.heading}
+              .card__info_description #{item.description}
+              .card__info_wo
+                if item.weight != ''
+                  .card__info_weight #{item.weight}
+                if item.weight != ''
+                  .card__info_order #{item.order}
+            span.card__info_price #{item.price}
+  include ../ButtonToggle/ButtonToggle.pug

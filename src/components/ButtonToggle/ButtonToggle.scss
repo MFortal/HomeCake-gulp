@@ -1,0 +1,33 @@
+.buttonToggle {
+  padding: 30px 50px;
+  cursor: pointer;
+  color: $color_pink;
+  font-size: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &:hover {
+    color: $color_buttonBack;
+  }
+
+  &:hover svg {
+    stroke: $color_buttonBack;
+  }
+
+  &__arrow {
+    width: 32px;
+    height: 18px;
+    fill: none;
+    stroke: $color_pink;
+    stroke-width: 4px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+._rotate_90 {
+  transform: rotate(-180deg);
+  animation-name: none;
+}

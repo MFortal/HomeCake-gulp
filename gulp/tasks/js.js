@@ -16,7 +16,7 @@ export const js = () => {
       webpack({
         mode: "development",
         output: {
-          filename: "script.js",
+          filename: "main.js",
         },
       })
     )

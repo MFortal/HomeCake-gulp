@@ -1,0 +1,26 @@
+-
+    items = [
+        {'src':"../images/_taste/pistachio-raspberry.jpg" , 'class':'_anim-items _anim-no-hide', 'heading': 'фисташка-малина', 'description': 'Классический бисквит, ванильный и шоколадно-фисташковый крем, малиновый конфи', 'price': '1700 р/кг'},
+        {'src':"../images/_taste/medovik.jpg" , 'class':'_anim-items _anim-no-hide', 'heading': 'медовик', 'description': 'Медовые коржи и нежный крем пломбир','price': '1550 р/кг'},
+        {'src':"../images/_taste/raffaello.jpg" , 'class':'_anim-items _anim-no-hide', 'heading': 'Рафаэлло','description': 'ОписаниеОписание ОписаниеОписание ОписаниеОписание',  'price': '1770 р/кг'},
+        {'src':"../images/_taste/snikers.jpg" , 'class':'_anim-items _anim-no-hide', 'heading': 'сникерс', 'description': 'Шоколадный бисквит, шоколадный крем, нуга, арахис и соленая карамель ', 'price': '1550 р/кг'},
+        {'src':"../images/_taste/exotic.jpg" , 'class':'_active _display', 'heading': 'экзотик', 'description': 'Классический бисквит, ванильный крем-чиз, конфи маракуйя, компоте манго (пюре + кусочки)', 'price':'1700 р/кг' },
+        {'src':"../images/_taste/plug.jpg" , 'class':'_active _display', 'heading': 'Шоколад-вишня', 'description': 'Описание ОписаниеОписание ОписаниеОписание Описание', 'price':'1550 р/кг' },
+        {'src':"../images/_taste/napoleon.jpg" , 'class':'_active _display', 'heading': 'наполеон', 'description': 'Коржи из слоеного теста, заварной ванильный крем','price':'1700 р/кг' },
+        {'src':"../images/_taste/tiramisu.jpg" , 'class':'_active _display', 'heading': 'тирамису', 'description': 'Описание ОписаниеОписание ОписаниеОписание Описание', 'price':'1600 р/кг' },]
+
+section.container.block.taste#taste
+  h1.heading.taste__heading вкусы
+  .taste__cards
+    each item in items
+      div(class='taste__card '+item.class)
+        .card__img.card__img_330(data-aos="zoom-in-down")
+          img.img(src=item.src)
+        .card__info.card__info_100(data-aos="zoom-in-up")
+          .card__info_title.heading #{item.heading}
+          .card__info_main.taste__info
+            .card__info_description.card__info_22 #{item.description}
+            span.card__info_price #{item.price}
+  include ../ButtonToggle/ButtonToggle.pug
+  .taste__text Минимальный вес торта: 1,5 кг. В стоимость сходит декор из крема и велюра. Декор из ягод, шоколада, цветов и съедобной печати оплачиваются отдельно.
+

@@ -1,0 +1,17 @@
+@import "./modules/normalize";
+@import "./modules/variables";
+@import "./modules/mixin";
+
+@import "./modules/general";
+@import "../components/Main/Main";
+@import "../components/About/About";
+@import "../components/Advantage/Advantage";
+@import "../components/Assortment/Assortment";
+@import "../components/Taste/Taste";
+@import "../components/Review/Review";
+@import "../components/Offer/Offer";
+@import "../components/Contact/Contact";
+@import "../components/Footer/Footer";
+@import "../components/ButtonToggle/ButtonToggle";
+@import "../components/Links/Links";
+@import "./modules/media";
