@@ -13,10 +13,6 @@
     font-size: 1.3rem;
     line-height: 1.15;
     letter-spacing: 0.05em;
-
-    &_235 {
-      width: 235px;
-    }
   }
 
   &__block_big-text {
@@ -32,6 +28,30 @@
     align-items: center;
     text-align: center;
     overflow: hidden;
+
+    &_pavlova {
+      background-image: url("../images/_advantage/pavlova.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &_macaroni {
+      background-image: url("../images/_advantage/macaroni.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &_potato {
+      background-image: url("../images/_advantage/potato.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &_mousse {
+      background-image: url("../images/_advantage/mousse.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
 
     &_25 {
       width: 25%;
@@ -66,18 +86,17 @@
   }
 }
 .section_not_padding {
-  padding-bottom: 0;
+  padding-bottom: 0 !important;
 }
 .advantage__rows {
   width: 100%;
   overflow: hidden;
 }
 .text__small {
-  width: 180px;
+  width: 65%;
   text-align: start;
 
   &_right {
-    width: 230px;
     text-align: right;
   }
 }
