@@ -400,6 +400,11 @@
   .row {
     min-height: 135px;
   }
+
+  .preloader {
+    width: 115px;
+    height: 115px;
+  }
 }
 
 @media (max-width: 680px) {
@@ -467,6 +472,11 @@
   }
   .about__main {
     height: 470px;
+  }
+
+  .preloader {
+    width: 90px;
+    height: 90px;
   }
 }
 
@@ -545,6 +555,19 @@
 
     &__block_25 {
       width: 32%;
+    }
+  }
+
+  .preloader {
+    width: 70px;
+    height: 70px;
+
+    animation-duration: 2s;
+    border-width: 2px;
+
+    &::after,
+    &::before {
+      border-width: 2px;
     }
   }
 }
