@@ -386,13 +386,19 @@
     }
   }
 
-  .about__main {
-    height: 460px;
+  .about {
+    &__main {
+      height: 460px;
+    }
+
+    &__info_right {
+      top: 15.5%;
+      right: 14.4%;
+    }
   }
 
-  .about__info_right {
-    top: 15.5%;
-    right: 14.4%;
+  .row {
+    min-height: 135px;
   }
 }
 
@@ -405,6 +411,20 @@
 
     &__foto1 {
       width: 37%;
+    }
+  }
+
+  .text__small {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .row {
+    min-height: 115px;
+
+    &__text {
+      font-size: 1.1rem;
+      padding: 0 10px;
     }
   }
 
@@ -515,6 +535,18 @@
       top: 17.5%;
     }
   }
+
+  .row {
+    min-height: 95px;
+
+    &__text {
+      font-size: 1rem;
+    }
+
+    &__block_25 {
+      width: 32%;
+    }
+  }
 }
 
 @media (max-width: 380px) {
@@ -555,6 +587,12 @@
 
     &__main {
       height: 465px;
+    }
+  }
+
+  .row {
+    &__text {
+      padding: 0;
     }
   }
 }

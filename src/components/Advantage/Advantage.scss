@@ -4,7 +4,7 @@
   border-bottom: 1px solid $color_line;
   display: flex;
 
-  &_last {
+  &:last-child {
     border-bottom: none;
   }
 
@@ -29,28 +29,8 @@
     text-align: center;
     overflow: hidden;
 
-    &_pavlova {
-      background-image: url("../images/_advantage/pavlova.webp");
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    &_macaroni {
-      background-image: url("../images/_advantage/macaroni.webp");
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    &_potato {
-      background-image: url("../images/_advantage/potato.webp");
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    &_mousse {
-      background-image: url("../images/_advantage/mousse.webp");
-      background-repeat: no-repeat;
-      background-size: cover;
+    &_potato img {
+      object-position: top;
     }
 
     &_25 {
@@ -73,15 +53,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-
-      &-last {
-        width: 150%;
-        object-position: -83px 40%;
-      }
-
-      &-first {
-        object-position: 0 20%;
-      }
     }
   }
 }
@@ -93,7 +64,8 @@
   overflow: hidden;
 }
 .text__small {
-  width: 65%;
+  width: 90%;
+
   text-align: start;
 
   &_right {
