@@ -81,6 +81,8 @@
 
     background: url("../images/_main/main4.webp");
     border-radius: 50px 50px 0px 0px;
+
+    background-size: cover;
   }
 
   &__row3_img {
@@ -89,6 +91,7 @@
 
     background: url("../images/_main/main3.webp");
     border-radius: 50%;
+    background-size: cover;
   }
 
   &__text {

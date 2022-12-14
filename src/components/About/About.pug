@@ -5,6 +5,11 @@ section.container.block.about#about
     .about__text_right(data-aos='fade-up-right') Главные фишки: максимальное включение в работу и индивидуальный подход к каждому заказу. Каждый раз вкладываюсь по полной, развивая идею до “Ого, вот это да!”.
     .about__info_left(data-aos='fade-up-left') 150+ тортиков
     .about__info_right(data-aos='fade-up-right') пеку с 15 лет
-    img.about__img(src="../images/_about/foto.png" alt="Портрет Анны")
+    picture
+      source(srcset="../images/_about/foto_480.webp" media="(max-width: 480px)")
+      source(srcset="../images/_about/foto_766.webp" media="(max-width: 768px)")
+      source(srcset="../images/_about/foto_1024.webp" media="(max-width: 1024px)")
+      source(srcset="../images/_about/foto_1440.webp")
+      img.about__img(src="../images/_about/foto.png" alt="Портрет Анны")
   .social_links
     include ../Links/Links.pug

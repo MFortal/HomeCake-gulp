@@ -91,6 +91,10 @@
     padding-left: 0;
     padding-right: 0;
   }
+
+  .about__text_right {
+    bottom: -30px;
+  }
 }
 
 @media (max-width: 1598px) {
@@ -198,6 +202,10 @@
       justify-content: end;
     }
   }
+
+  .about__text_right {
+    bottom: 0;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -244,6 +252,15 @@
   .arrow {
     width: 220px;
     height: 25px;
+  }
+
+  .about__main {
+    height: 550px;
+  }
+
+  .about__text_left,
+  .about__text_right {
+    width: 65%;
   }
 
   .main {
@@ -324,9 +341,14 @@
     font-size: 12px;
   }
 
+  .block {
+    gap: 35px;
+  }
+
   .header {
     display: flex;
     justify-content: flex-end;
+    padding: 7px 16px;
 
     &__nav {
       display: none;
@@ -337,6 +359,14 @@
       gap: 35px;
 
       font-size: 1.3rem;
+    }
+  }
+
+  .svg_social {
+    width: 30px;
+
+    &-vk {
+      width: 40px;
     }
   }
 
@@ -355,14 +385,34 @@
       width: 73%;
     }
   }
+
+  .about__main {
+    height: 460px;
+  }
+
+  .about__info_right {
+    top: 15.5%;
+    right: 14.4%;
+  }
 }
 
 @media (max-width: 680px) {
+  .block {
+    gap: 25px;
+  }
   .main {
     min-height: 460px;
 
     &__foto1 {
       width: 37%;
+    }
+  }
+
+  .svg_social {
+    width: 25px;
+
+    &-vk {
+      width: 33px;
     }
   }
 
@@ -374,9 +424,36 @@
     width: 250px;
     height: 55px;
   }
+  .about__text_left,
+  .about__text_right {
+    width: 85%;
+  }
+
+  .about__info_left {
+    left: 5%;
+  }
+
+  .about__info_right {
+    right: 5%;
+  }
+
+  .about__info_left,
+  .about__info_right {
+    width: 32%;
+  }
+
+  .about__img {
+    margin-top: 35px;
+  }
+  .about__main {
+    height: 470px;
+  }
 }
 
 @media (max-width: 480px) {
+  .block {
+    gap: 20px;
+  }
   .main {
     padding: 0;
     min-height: 358px;
@@ -422,6 +499,18 @@
       min-height: 35px;
     }
   }
+
+  .about {
+    &__main {
+      height: 435px;
+    }
+    &__img {
+      margin-top: 50px;
+    }
+    &__info_right {
+      top: 17.5%;
+    }
+  }
 }
 
 @media (max-width: 380px) {
@@ -429,7 +518,13 @@
     font-size: 1.8rem;
   }
 
+  .block {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
   .main {
+    min-height: 345px;
     &__text {
       width: 100%;
     }
@@ -441,6 +536,26 @@
     &__row3_img {
       width: 30px;
       min-height: 30px;
+    }
+  }
+
+  .about {
+    &__text_left,
+    &__text_right {
+      width: 100%;
+    }
+
+    &__img {
+      margin-top: 75px;
+    }
+
+    &__info_left,
+    &__info_right {
+      font-size: 1.8rem;
+    }
+
+    &__main {
+      height: 465px;
     }
   }
 }
